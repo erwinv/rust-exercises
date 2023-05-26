@@ -1,4 +1,4 @@
-use rust_exercises::library::Library;
+use exer::library::Library;
 
 // This shows the desired behavior. Uncomment the code below and
 // implement the missing methods. You will need to update the
