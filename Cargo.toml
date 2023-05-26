@@ -4,9 +4,3 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "exer"
-path = "src/lib/exer.rs"
-
-[[bin]]
-name = "run-exer"
-path = "src/main.rs"
