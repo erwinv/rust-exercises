@@ -2,13 +2,13 @@ pub struct Library {
     books: Vec<Book>,
 }
 
-struct Book {
-    title: String,
+pub struct Book {
+    pub title: String,
     year: u16,
 }
 
 impl Book {
-    fn new(title: &str, year: u16) -> Book {
+    pub fn new(title: &str, year: u16) -> Book {
         Book {
             title: String::from(title),
             year,
@@ -16,34 +16,41 @@ impl Book {
     }
 }
 
-// Implement the methods below. Update the `self` parameter to
-// indicate the method's required level of ownership over the object:
-//
-// - `&self` for shared read-only access,
-// - `&mut self` for unique and mutable access,
-// - `self` for unique access by value.
 impl Library {
     pub fn new() -> Library {
-        todo!("Initialize and return a `Library` value")
+        Library{ books: vec![] }
     }
 
-    //fn len(self) -> usize {
-    //    todo!("Return the length of `self.books`")
-    //}
+    pub fn len(&self) -> usize {
+       self.books.len()
+    }
 
-    //fn is_empty(self) -> bool {
-    //    todo!("Return `true` if `self.books` is empty")
-    //}
+    pub fn is_empty(&self) -> bool {
+       self.books.len() == 0
+    }
 
-    //fn add_book(self, book: Book) {
-    //    todo!("Add a new book to `self.books`")
-    //}
+    pub fn add_book(&mut self, book: Book) {
+       self.books.push(book);
+    }
 
-    //fn print_books(self) {
-    //    todo!("Iterate over `self.books` and each book's title and year")
-    //}
+    pub fn print_books(&self) {
+       for book in &self.books {
+            println!("title: {:?}, year: {:?}", book.title, book.year);
+       }
+    }
 
-    //fn oldest_book(self) -> Option<&Book> {
-    //    todo!("Return a reference to the oldest book (if any)")
-    //}
+    pub fn oldest_book(&self) -> Option<&Book> {
+        if self.books.len() == 0 {
+            return None;
+        }
+
+        let mut oldest: &Book = &self.books[0];
+        for book in &self.books[1..] {
+            if book.year < oldest.year {
+                oldest = book
+            }
+        }
+
+        Some(oldest)
+    }
 }
