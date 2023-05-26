@@ -18,25 +18,25 @@ impl Book {
 
 impl Library {
     pub fn new() -> Library {
-        Library{ books: vec![] }
+        Library { books: vec![] }
     }
 
     pub fn len(&self) -> usize {
-       self.books.len()
+        self.books.len()
     }
 
     pub fn is_empty(&self) -> bool {
-       self.books.len() == 0
+        self.books.len() == 0
     }
 
     pub fn add_book(&mut self, book: Book) {
-       self.books.push(book);
+        self.books.push(book);
     }
 
     pub fn print_books(&self) {
-       for book in &self.books {
+        for book in &self.books {
             println!("title: {:?}, year: {:?}", book.title, book.year);
-       }
+        }
     }
 
     pub fn oldest_book(&self) -> Option<&Book> {

@@ -24,7 +24,7 @@ fn main() {
     for word in &v {
         println!("word: {word}");
     }
-    
+
     for word in v {
         println!("word: {word}");
     }
